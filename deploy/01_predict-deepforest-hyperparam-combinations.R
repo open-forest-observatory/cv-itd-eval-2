@@ -14,7 +14,7 @@ library(tidyverse)
 ORTHO_FILEPATH = "/ofo-share/cv-itd-eval_data/photogrammetry-outputs/emerald-point_10a-20230103T2008/ortho.tif"
 
 # Directory to save the results (detected trees) to
-OUT_DIR = "/ofo-share/cv-itd-eval_data/cv-detected-trees/run-01"
+BBOXES_PATH = "/ofo-share/cv-itd-eval_data/cv-detected-trees/run-01/bboxes"
 
 # The parameter to vary (i.e. ortho_resolution, window_size, patch_overlap, iou_threshold)
 SINGLE_PARAM = "window_size"
@@ -26,7 +26,7 @@ DEFAULT_PARAM_VALUES = list(ortho_resolution = 1,
                             patch_overlap = 0.25,
                             iou_threshold = 0.15)
 
-DEEPFOREST_SCRIPT_PATH = "/ofo-share/repos-derek/cv-itd-eval-2/src/run-deepforest-prediction-from-command-line.py"
+DEEPFOREST_SCRIPT_PATH = "/ofo-share/repos-derek/cv-itd-eval-2/src/deepforest-prediction.py"
 
 
 #### CONVENIENCE FUNCTIONS ####
@@ -48,8 +48,8 @@ if (!(SINGLE_PARAM %in% allowed_params)) {
 }
 
 # Make out directory if needed
-if (!dir.exists(OUT_DIR)) {
-  dir.create(OUT_DIR, recursive = TRUE)
+if (!dir.exists(BBOXES_PATH)) {
+  dir.create(BBOXES_PATH, recursive = TRUE)
 }
 
 # Get the base filename to use for saving (same as the ortho filename, but without extension)
@@ -65,7 +65,7 @@ for (single_param_value in SINGLE_PARAM_VALUES) {
   param_values[[SINGLE_PARAM]] = single_param_value
 
   # Prep bbox output file name
-  bbox_gpkg_out_filepath = paste0(OUT_DIR, "/bboxes_", filename_minus_extension, "_", "dpf", "_",
+  bbox_gpkg_out_filepath = paste0(BBOXES_PATH, "/bboxes_", filename_minus_extension, "_", "dpf", "_",
                                   single_param_value |> pad_5dig(), ".gpkg")
 
   cat("\nStarting detection for", bbox_gpkg_out_filepath, "\n")
