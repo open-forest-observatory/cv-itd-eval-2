@@ -16,13 +16,13 @@ library(sf)
 #### CONSTANTS ####
 
 # Path to dir containing predicted deepforest tree bboxes (separate file for each hyperparam run)
-BBOXES_PATH = "/ofo-share/cv-itd-eval_data/cv-detected-trees/run-01/bboxes/"
+BBOXES_PATH = "/ofo-share/cv-itd-eval_data/predicted-trees/run-01/bboxes/"
 
 # Path to canopy height model for assigning heights to treetops
 CHM_FILEPATH = "/ofo-share/cv-itd-eval_data/photogrammetry-outputs/emerald-point_10a-20230103T2008/chm.tif"
 
 # Path to dir for saving the resulting treetop points (separate file for each hyperparam run)
-TTOPS_PATH = "/ofo-share/cv-itd-eval_data/cv-predicted-trees/run-01/ttops/"
+TTOPS_PATH = "/ofo-share/cv-itd-eval_data/predicted-trees/run-01/ttops/"
 
 # Load the bboxes files
 bboxes_files = list.files(BBOXES_PATH, pattern = "^bboxes.*gpkg$", full.name = TRUE)

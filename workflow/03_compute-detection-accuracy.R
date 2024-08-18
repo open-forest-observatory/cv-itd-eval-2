@@ -12,7 +12,7 @@ devtools::load_all("/ofo-share/repos-derek/ofo-r")
 # CONSTANTS
 
 # Path to the directory containing the predicted treetop points
-PREDICTED_TTOPS_DIR = "/ofo-share/cv-itd-eval_data/cv-predicted-trees/run-01/ttops/"
+PREDICTED_TTOPS_DIR = "/ofo-share/cv-itd-eval_data/predicted-trees/run-01/ttops/"
 
 # Path to the field reference (observed) tree points
 OBS_TREES_FILEPATH = "/ofo-share/cv-itd-eval_data/observed-trees/observed-trees_incl-small.geojson"
