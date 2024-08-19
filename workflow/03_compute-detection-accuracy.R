@@ -1,5 +1,6 @@
 # Purpose: Take detected ttops and compare against field reference tree data to quantify detection
-# accuracy.
+# accuracy. This leans heavily on functions defined in the (in-development) ofo R package, which you
+# will need to clone from GitHub and update the path to it below in the `devtools::load_all...` line.
 
 library(sf)
 library(tidyverse)

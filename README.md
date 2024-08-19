@@ -36,9 +36,11 @@ reference for evaluating predicted treetops against
    files that exist within the provided directory and saves a series of ttops files in a parallel
    directory.
 3. Compute the accuracy of the tree detections by (a) matching the detected trees to the observed
-   (field-measured) trees based on horizontal distance and height difference using a refined
-   version of the methods [published
+   (field-measured) trees based on horizontal distance and height difference using a refined version
+   of the methods [published
    here](https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.13860), and then (b)
    based on the matches, computing recall, precision, and F-score. This is performed by
-   `workflow/03_compute-detection-accuracy.R`, which saves an accuracy stats file
-   as a CSV (separately for each ttops file) into a specified folder.
+   `workflow/03_compute-detection-accuracy.R`, which saves an accuracy stats file as a CSV
+   (separately for each ttops file) into a specified folder. This script leans heavily on functions
+   defined in the (in-development) ofo R package, which you will need to clone from GitHub and load
+   at the top of the script using `devtools::load_all`, since it is not published on CRAN.
