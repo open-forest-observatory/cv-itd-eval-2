@@ -1,4 +1,4 @@
-# Purpose: Take detected ttops and compare against field reference tree data to calculate detection
+# Purpose: Take detected ttops and compare against field reference tree data to quantify detection
 # accuracy.
 
 library(sf)
